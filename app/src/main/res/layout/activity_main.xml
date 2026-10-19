@@ -9,254 +9,113 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:fillViewport="true"
-        android:overScrollMode="never"
-        android:scrollbars="none">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- ============================================================
-                 HEADER : gradient, avatar, greeting, urgent care, doctor cutout
-                 ============================================================ -->
-            <FrameLayout
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="364dp"
-                android:background="@drawable/bg_header_photo">
-
-                <ImageView
-                    android:id="@+id/doctor_hero"
-                    android:layout_width="196dp"
-                    android:layout_height="252dp"
-                    android:layout_gravity="bottom|end"
-                    android:importantForAccessibility="no"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/doctor_hero" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/header_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp">
-
-                    <ImageView
-                        android:id="@+id/avatar"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/bg_service_circle"
-                        android:clipToOutline="true"
-                        android:contentDescription="@string/cd_profile"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/avatar_rajesh"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/bell"
-                        android:layout_width="44dp"
-                        android:layout_height="44dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="22dp"
-                        app:cardElevation="4dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:strokeWidth="0dp">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:layout_gravity="center"
-                            android:contentDescription="@string/cd_notifications"
-                            android:src="@drawable/ic_bell"
-                            app:tint="@color/text_primary" />
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <TextView
-                        android:id="@+id/title"
-                        style="@style/Text.Title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:text="@string/welcome_title"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/avatar" />
-
-                    <TextView
-                        android:id="@+id/subtitle"
-                        style="@style/Text.Subtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-8dp"
-                        android:text="@string/welcome_subtitle"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/title" />
-
-                    <LinearLayout
-                        android:id="@+id/urgent_care"
-                        android:layout_width="wrap_content"
-                        android:layout_height="46dp"
-                        android:layout_marginTop="32dp"
-                        android:background="@drawable/bg_urgent_button"
-                        android:clickable="true"
-                        android:elevation="4dp"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="20dp"
-                        android:paddingEnd="22dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/subtitle">
-
-                        <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:importantForAccessibility="no"
-                            android:src="@drawable/ic_sunrise"
-                            app:tint="@color/white" />
-
-                        <TextView
-                            style="@style/Text.Button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:text="@string/urgent_care" />
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
-
-            <!-- ============================================================
-                 WHITE SURFACE : services + appointment
-                 ============================================================ -->
-
-
     <!-- ============================================================
-         BOTTOM NAVIGATION
+         HEADER : gradient, avatar, greeting, urgent care, doctor cutout
          ============================================================ -->
-    <LinearLayout
-        android:id="@+id/bottom_nav"
+    <FrameLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_nav_bar"
-        android:elevation="12dp"
-        android:orientation="horizontal"
-        android:paddingStart="6dp"
-        android:paddingTop="6dp"
-        android:paddingEnd="6dp"
-        android:paddingBottom="6dp">
+        android:layout_height="364dp"
+        android:background="@drawable/bg_header_photo">
 
-        <FrameLayout
-            android:id="@+id/nav_home"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true">
+        <ImageView
+            android:id="@+id/doctor_hero"
+            android:layout_width="196dp"
+            android:layout_height="252dp"
+            android:layout_gravity="bottom|end"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/doctor_hero" />
 
-            <ImageView
-                android:id="@+id/icon_home"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/cd_home"
-                android:src="@drawable/ic_home"
-                app:tint="@color/brand_blue" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/nav_records"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
 
             <ImageView
-                android:id="@+id/icon_records"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/cd_records"
-                android:src="@drawable/ic_records"
-                app:tint="@color/nav_icon" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/nav_add"
+                android:id="@+id/avatar"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/brand_navy"
-                app:cardCornerRadius="23dp"
+                android:background="@drawable/bg_service_circle"
+                android:clipToOutline="true"
+                android:contentDescription="@string/cd_profile"
+                android:scaleType="centerCrop"
+                android:src="@drawable/avatar_rajesh"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/bell"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="22dp"
                 app:cardElevation="4dp"
-                app:rippleColor="#33FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:strokeWidth="0dp">
 
                 <ImageView
-                    android:id="@+id/icon_add"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/cd_add"
-                    android:src="@drawable/ic_plus"
-                    app:tint="@color/white" />
+                    android:contentDescription="@string/cd_notifications"
+                    android:src="@drawable/ic_bell"
+                    app:tint="@color/text_primary" />
             </com.google.android.material.card.MaterialCardView>
-        </FrameLayout>
 
-        <FrameLayout
-            android:id="@+id/nav_chat"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true">
+            <TextView
+                android:id="@+id/title"
+                style="@style/Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/welcome_title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatar" />
 
-            <ImageView
-                android:id="@+id/icon_chat"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/cd_chat"
-                android:src="@drawable/ic_chat"
-                app:tint="@color/nav_icon" />
-        </FrameLayout>
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/Text.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:text="@string/welcome_subtitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
-        <FrameLayout
-            android:id="@+id/nav_account"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true">
+            <LinearLayout
+                android:id="@+id/urgent_care"
+                android:layout_width="wrap_content"
+                android:layout_height="46dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_urgent_button"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="20dp"
+                android:paddingEnd="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle">
 
-            <ImageView
-                android:id="@+id/icon_account"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/cd_account"
-                android:src="@drawable/ic_profile"
-                app:tint="@color/nav_icon" />
-        </FrameLayout>
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_sunrise"
+                    app:tint="@color/white" />
+
+                <TextView
+                    style="@style/Text.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/urgent_care" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </LinearLayout>
